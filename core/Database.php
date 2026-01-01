@@ -69,4 +69,9 @@ class Database {
         return $this->conn->rollBack();
     }
 
+    public function getConnection() {
+        return $this->conn;
+    }
+    
+
 }   
