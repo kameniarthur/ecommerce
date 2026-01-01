@@ -1,0 +1,22 @@
+# .htaccess minimal pour développement
+
+RewriteEngine On
+RewriteBase /
+
+# Front Controller
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Désactiver l'indexation
+Options -Indexes
+
+# Pages d'erreur
+ErrorDocument 404 /public/404.php
+ErrorDocument 500 /public/500.php
+
+# Pour développement - afficher les erreurs
+php_flag display_errors on
+php_flag display_startup_errors on
+php_value error_reporting E_ALL
