@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Core;
+
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../config.php';
 
@@ -20,15 +22,15 @@ class Database {
 
     private function __construct() {
         try {
-            $this->conn = new PDO(
+            $this->conn = new \PDO(
                 "mysql:host={$this->host};dbname={$this->db_name};charset=utf8mb4",
                 $this->username,
                 $this->password,
-                [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]
+                [\PDO::ATTR_DEFAULT_FETCH_MODE => \PDO::FETCH_ASSOC]
             );
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        } catch (PDOException $e) {
-            throw new RuntimeException("Échec de la connexion à la base de données : " . $e->getMessage());
+            $this->conn->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+        } catch (\PDOException $e) {
+            throw new \RuntimeException("Échec de la connexion à la base de données : " . $e->getMessage());
         }
     }
 

@@ -1,6 +1,8 @@
 <?php
 // core/Model.php
 
+namespace App\Core;
+
 abstract class Model
 {
     protected $db;
@@ -66,8 +68,8 @@ abstract class Model
     {
         $offset = ($page - 1) * $perPage;
         $stmt = $this->db->prepare("SELECT * FROM {$this->table} LIMIT ? OFFSET ?");
-        $stmt->bindValue(1, $perPage, PDO::PARAM_INT);
-        $stmt->bindValue(2, $offset, PDO::PARAM_INT);
+        $stmt->bindValue(1, $perPage, \PDO::PARAM_INT);
+        $stmt->bindValue(2, $offset, \PDO::PARAM_INT);
         $stmt->execute();
         return $stmt->fetchAll();
     }

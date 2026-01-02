@@ -1,5 +1,6 @@
 <?php
-// core/Controller.php
+namespace App\Core;
+
 use App\Core\Request;
 class Controller
 {
@@ -19,7 +20,7 @@ class Controller
         if (file_exists($viewFile)) {
             require $viewFile;
         } else {
-            throw new Exception("Vue non trouvée : {$view}");
+            throw new \Exception("Vue non trouvée : {$view}");
         }
     }
 
