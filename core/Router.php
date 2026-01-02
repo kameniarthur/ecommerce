@@ -1,6 +1,7 @@
 <?php
 // core/Router.php
 
+namespace App\Core;
 class Router
 {
     private $routes = [];

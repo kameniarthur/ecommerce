@@ -1,6 +1,7 @@
 <?php
 // core/Request.php
 
+namespace App\Core;
 class Request
 {
     private $get;

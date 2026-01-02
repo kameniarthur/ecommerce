@@ -1,6 +1,6 @@
 <?php
 // core/Controller.php
-
+use App\Core\Request;
 class Controller
 {
     protected $db;
